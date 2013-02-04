@@ -27,13 +27,13 @@ AC_CHECK_LIB([m], [main])
 AC_CHECK_LIB([pow], [main])
 
 # Checks for header files.
-AC_CHECK_HEADERS([stdlib.h])
+AC_CHECK_HEADERS([stdlib.h string.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
 AC_FUNC_STRTOD
-AC_CHECK_FUNCS([pow])
+AC_CHECK_FUNCS([pow strerror])
 
 AC_CONFIG_FILES([Makefile
                  include/Makefile
