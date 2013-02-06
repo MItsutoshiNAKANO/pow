@@ -1,0 +1,37 @@
+.TH STR2POW 3
+.SH 名前
+str2pow \- 文字列を引数に持つ、べき乗関数
+
+.SH 書式
+
+#include <str2pow.h>
+
+double str2pow(const char *x, const char *y);
+
+Link with -lpow -lm
+
+.SH 説明
+str2pow() はxのy乗を返す。
+
+.SH 返却値
+
+成功なら、この関数はxのy乗を返す。
+
+xが0未満で、yが整数でないなら、NaNを返す。
+
+pow(3)もご覧ください。
+
+.SH エラー
+
+pow(3)をご覧ください。
+
+.SH 準拠
+
+.SH 問題
+
+pow(3)をご覧ください。
+
+.SH 関連項目
+
+pow(3), math_error(7)
+

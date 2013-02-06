@@ -1,0 +1,8 @@
+#
+SUBDIRS= ja
+MAINTAINERCLEANFILES= pow.1
+man_MANS= str2pow.3 $(MAINTAINERCLEANFILES)
+EXTRA_DIST= $(man_MANS)
+POW_COMMAND= $(top_builddir)/pow/pow
+$(MAINTAINERCLEANFILES): $(POW_COMMAND) $(common_mandeps)
+	$(HELP2MAN) $(POW_COMMAND) >$@

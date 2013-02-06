@@ -1,0 +1,36 @@
+.TH STR2POW 3
+.SH NAME
+str2pow \- power function from strings
+
+.SH SYNOPSIS
+
+#include <str2pow.h>
+
+double str2pow(const char *x, const char *y);
+
+Link with -lpow -lm
+
+.SH DESCRIOTION
+The str2pow() function returns the value of x raised to the power of y.
+
+.SH RETURN VALUE
+On success, these functions return the value of x to the power of y.
+If x is a finite value less than 0, and y is  a  finite  noninteger,  a
+domain error occurs, and a NaN is returned.
+
+See alsso pow(3).
+
+.SH ERRORS
+
+See alsso pow(3).
+
+.SH CONFORMING TO
+
+.SH BUGS
+
+See alsso pow(3).
+
+.SH SEE ALSO
+
+pow(3), math_error(7)
+
