@@ -2,13 +2,16 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT(pow, 0, ItSANgo@gmail.com)
+AC_INIT(pow, 0.1, ItSANgo@gmail.com)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([pow/pow.c])
 AC_CONFIG_HEADERS([config.h])
 
 AM_PROG_LIBTOOL
 AC_CONFIG_MACRO_DIR([m4])
+AM_MISSING_PROG(HELP2MAN, help2man, $missing_dir)
+
+
 
 # Checks for programs.
 AC_PROG_CXX
@@ -38,5 +41,8 @@ AC_CHECK_FUNCS([pow strerror])
 AC_CONFIG_FILES([Makefile
                  include/Makefile
                  libpow/Makefile
-                 pow/Makefile])
+                 man/Makefile
+                 man/ja/Makefile
+                 pow/Makefile
+                 tests/Makefile])
 AC_OUTPUT

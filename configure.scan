@@ -34,5 +34,8 @@ AC_CHECK_FUNCS([pow strerror])
 AC_CONFIG_FILES([Makefile
                  include/Makefile
                  libpow/Makefile
-                 pow/Makefile])
+                 man/Makefile
+                 man/ja/Makefile
+                 pow/Makefile
+                 tests/Makefile])
 AC_OUTPUT
