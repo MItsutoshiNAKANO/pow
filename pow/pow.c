@@ -9,6 +9,11 @@
 #include <config.h>
 #include "str2pow.h"
 
+enum exit_stat {
+  EX_NORMAL, EX_SUBNORMAL, EX_ZERO, EX_MINUS_INFINITE, EX_INFINITE, EX_NAN,
+  EX_ARGUMENTS, EX_OPTIONS, EX_LOCALE, EX_OUTPUT_ERROR
+};
+
 static int
 print_version(FILE *file)
 {
@@ -50,7 +55,7 @@ main(int argc, char *argv[])
 
   if (!setlocale(LC_ALL, "")) {
     fprintf(stderr, "setlocale() error");
-    exit(5);
+    exit(EX_LOCALE);
   }
 
   static const struct option longopts[] = {
@@ -63,28 +68,61 @@ main(int argc, char *argv[])
     switch (optc) {
     case 'v':
       print_version(stdout);
-      exit(EXIT_SUCCESS);
+      exit(EX_NORMAL);
       break;
     case 'h':
       print_help(stdout);
-      exit(EXIT_SUCCESS);
+      exit(EX_NORMAL);
       break;
     default:
-      lose = 1;
+      lose += 1;
       break;
     }
   }
 
-  if (lose || argc - optind < 2) {
+  if (lose) {
     print_help(stderr);
-    exit(3);
+    exit(EX_OPTIONS);
+  } 
+  if (argc - optind < 2) {
+    print_help(stderr);
+    exit(EX_ARGUMENTS);
   }
+  int ex = EX_NORMAL;
   double d = str2pow(argv[optind], argv[optind + 1]);
+  switch (fpclassify(d)) {
+  case FP_NAN:
+    ex = EX_NAN;
+    break;
+  case FP_INFINITE:
+    if (isinf(d) < 0) {
+      ex = EX_MINUS_INFINITE;
+    } else if (isinf(d) > 0) {
+      ex = EX_INFINITE;
+    } else {
+      int save_errno = errno;
+      printf("%g\n", d);
+      fprintf(stderr,
+	      "Why this code was called?!\n"
+	      "%d:%s\n", save_errno, strerror(save_errno));
+      abort();
+    }
+    break;
+  case FP_ZERO:
+    ex = EX_ZERO;
+    break;
+  case FP_SUBNORMAL:
+    ex = EX_SUBNORMAL;
+    break;
+  case FP_NORMAL:
+    break;
+  }
+
   if (printf("%g\n", d) <= 0) {
     int save_errno = errno;
-    char *p = strerror(save_errno);
-    fprintf(stderr ,"%s: output_error: %s, %d\n", argv[0], p, save_errno);
-    exit(4);
+    fprintf(stderr ,"pow: output_error:%d: %s\n", save_errno,
+	    strerror(save_errno));
+    exit(EX_OUTPUT_ERROR);
   }
-  exit(EXIT_SUCCESS);
+  exit(ex);
 }
