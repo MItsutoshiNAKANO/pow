@@ -1,5 +1,6 @@
 #
 INCLUDES= -I$(top_builddir)/include
+DEFS= -DLOCALEDIR=\"$(localedir)\" @DEFS@
 AM_CFLAGS= -Wall -std=gnu99
 bin_PROGRAMS = pow
 pow_SOURCES= pow.c

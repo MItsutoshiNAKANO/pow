@@ -23,19 +23,20 @@ AC_CHECK_LIB([m], [main])
 AC_CHECK_LIB([pow], [main])
 
 # Checks for header files.
-AC_CHECK_HEADERS([stdlib.h string.h])
+AC_CHECK_HEADERS([libintl.h locale.h stdlib.h string.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
 AC_FUNC_STRTOD
-AC_CHECK_FUNCS([pow strerror])
+AC_CHECK_FUNCS([pow setlocale strerror])
 
 AC_CONFIG_FILES([Makefile
                  include/Makefile
                  libpow/Makefile
                  man/Makefile
                  man/ja/Makefile
+                 msg/Makefile
                  pow/Makefile
                  tests/Makefile])
 AC_OUTPUT

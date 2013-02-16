@@ -1,0 +1,71 @@
+# Japanese translations for pow package.
+# Copyright (C) 2013 THE pow'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pow package.
+# Mitsutoshi NAKANO <bkbin005@rinku.zaq.ne.jp>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pow 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-16 12:57+0900\n"
+"PO-Revision-Date: 2013-02-16 10:42+0900\n"
+"Last-Translator: Mitsutoshi NAKANO <bkbin005@rinku.zaq.ne.jp>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../pow/pow.c:33
+#, c-format
+msgid ""
+"Usage: pow x y\n"
+"or: pow [--help|--version]\n"
+"\n"
+"The pow returns the value of x raised to the power of y .\n"
+"\n"
+"\t--help print this help message .\n"
+"\t--version print version .\n"
+"\n"
+"Examples: pow 2 3\n"
+"\n"
+"Report bugs to: %s\n"
+"\n"
+"Written by %s\n"
+"\n"
+"Copyright (C) %s\n"
+msgstr ""
+"使用方法: pow x y\n"
+"または: pow [--help|--version]\n"
+"\n"
+"powはxのy乗を返します。\n"
+"\n"
+"\t--help このヘルプメッセージを表示します。\n"
+"\t--version バージョンを表示します。\n"
+"\n"
+"例: pow 2 3\n"
+"\n"
+"バグの報告: %s\n"
+"作者 %s\n"
+"\n"
+"著作権 %s\n"
+
+#: ../pow/pow.c:56
+#, c-format
+msgid "setlocale() error"
+msgstr "setlocale() エラー"
+
+#: ../pow/pow.c:107
+#, c-format
+msgid ""
+"Why this code was called?!\n"
+"%d:%s\n"
+msgstr ""
+"なぜこのコードが呼び出されたのか?!\n"
+"%d:%s\n"
+
+#: ../pow/pow.c:124
+#, c-format
+msgid "pow: output_error:%d: %s\n"
+msgstr "pow: 出力エラー:%d: %s\n"
