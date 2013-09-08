@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT(pow, 0.2, ItSANgo@gmail.com)
+AC_INIT([pow], [0.2], [bkbin005@rinku.zaq.ne.jp])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([pow/pow.c])
 AC_CONFIG_HEADERS([config.h])

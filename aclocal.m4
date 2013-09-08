@@ -244,8 +244,8 @@ msgstr ""
 	  AC_PATH_PROG(GMSGFMT, gmsgfmt, $MSGFMT)
 	  GLIB_PATH_PROG_WITH_TEST(XGETTEXT, xgettext,
 	    [test -z "`$ac_dir/$ac_word -h 2>&1 | grep '(HELP)'`"], :)
-	  AC_TRY_LINK(, [extern int _nl_msg_cat_cntr;
-			 return _nl_msg_cat_cntr],
+	  AC_TRY_LINK([extern int _nl_msg_cat_cntr;],
+		      [return _nl_msg_cat_cntr],
 	    [CATOBJEXT=.gmo 
              DATADIRNAME=share],
 	    [case $host in
