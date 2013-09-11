@@ -1,5 +1,5 @@
 #
-AM_CPPFLAGS= -I$(top_builddir)/include
+AM_CPPFLAGS= -I$(top_srcdir)/include
 DEFS= -DLOCALEDIR=\"$(localedir)\" @DEFS@
 AM_CFLAGS= -Wall -std=gnu99
 bin_PROGRAMS = pow

@@ -1,8 +1,8 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.69])
-AC_INIT([pow], [0.2], [bkbin005@rinku.zaq.ne.jp])
+AC_PREREQ([2.68])
+AC_INIT([pow], [0.2.1], [bkbin005@rinku.zaq.ne.jp])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([pow/pow.c])
 AC_CONFIG_HEADERS([config.h])
@@ -14,7 +14,9 @@ AM_MISSING_PROG(HELP2MAN, help2man, $missing_dir)
 IT_PROG_INTLTOOL([0.35.0])
 GETTEXT_PACKAGE=${PACKAGE_NAME}
 AC_SUBST(GETTEXT_PACKAGE)
-AM_GLIB_GNU_GETTEXT
+
+#AM_GLIB_GNU_GETTEXT
+
 #AC_USE_SYSTEM_EXTENSIONS
 #AM_GNU_GETTEXT
 
@@ -28,6 +30,7 @@ AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_RANLIB
+LT_INIT
 
 # Checks for libraries.
 # FIXME: Replace `main' with a function in `-lm':
@@ -49,7 +52,6 @@ AC_CONFIG_FILES([Makefile
                  libpow/Makefile
                  man/Makefile
                  man/ja/Makefile
-                 msg/Makefile
                  po/Makefile.in
                  pow/Makefile
                  tests/Makefile])
